@@ -1,0 +1,24 @@
+body{
+    font-family:'Titillium Web', sans-serif;
+}
+.nav{
+    background-color: blue;
+    display: flex;
+    align-items: center;
+    margin: -1rem;
+
+}
+.nav_logo img{
+    width: 110px;
+    height: 110px;
+    border-radius: 100%;
+    width: 111px;
+    height: 111px;
+    margin: 2rem;
+    padding: 1rem; 
+
+}
+.bienvenida{
+    font-family: 'Titillium web';
+    color: white;
+}
