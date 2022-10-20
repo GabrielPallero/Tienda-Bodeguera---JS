@@ -1,8 +1,5 @@
-body{
-    font-family:'Titillium Web', sans-serif;
-}
 .nav{
-    background-color: blue;
+   
     display: flex;
     align-items: center;
     margin: -1rem;
@@ -20,5 +17,14 @@ body{
 }
 .bienvenida{
     font-family: 'Titillium web';
-    color: white;
+   
 }
+
+    .indicaciones{
+        display: flex;
+        justify-content: baseline;
+        margin: 0;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+     
+
+    }
