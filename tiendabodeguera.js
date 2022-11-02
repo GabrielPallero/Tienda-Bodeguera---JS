@@ -1,64 +1,61 @@
-let nombre_usuario;
-let pasword;
+let trolley = [];
 
-nombre_usuario = "Gabriel";
-pasword= 1921;
+let btn_agregar = document.querySelectorAll (".botonAgregarcarrito");
+let btn_trolley = document.getElementById ("ocultar_carrito");
+btn_trolley.addEventListener("click", function(){
+let btn_trolley = document.getElementById("trolley");
+    if(trolley.style.visibility != "hidden"){
+        trolley.style.display = "none";
+    }
+    else{
+        trolley.style.display = "flex";
+    }
+})
+for(let boton of btn_agregar){
+    boton.addEventListener("click", add_a_trolley)
+};
+function add_a_trolley(e){
+    let child = e.target;
+    let father = child.parentNode;
+    let grandfather = father.parentNode;
 
-let usuario = prompt("Ingrese su usuario");
-let contraseña = prompt("Ingrese su contraseña");
+    let nombre_producto = father.querySelector("h5").textContent;
+    let precio_producto = father.querySelector("div").textContent;
+    let talle_producto = grandfather.querySelector("p").textContent;
+    let producto = {
+        nombre: nombre_producto,
+        precio: precio_producto,
+        talle: talle_producto,
+        cantidad: 1,
+    }
+    trolley.push(producto);
+    ocultar_carrito(producto);
+};
+function ocultar_carrito (producto){
+    let fila = document.createElement("tr");
+    fila.innerHTML = `<td>${producto.nombre}</td>
+                      <td>${producto.cantidad}</td>
+                      <td>${producto.precio}</td>
+                      <td>${producto.talle}</td>
+                      <td><button class="btn btn-danger quitar_elemento">Borrar</td>`;
+                     
+let tabla = document.getElementById("tbody");
+tabla.append( fila );
 
-if(usuario == "Gabriel" & contraseña==1921){
+let btn_borrar = document.querySelectorAll(".quitar_elemento");
+
+
+for( let boton of btn_borrar){
+
+    boton.addEventListener("click" , remove_elemento);
+}
+};
+function remove_elemento(e){
+
     
-    alert("Bienvenido a la tienda bodeguera");
-   
-}
-else if(usuario != "Gabriel" || contraseña != 1921){
-    alert("No puede ingresar, usuario o contraseña incorrectos")
-}
-    
-class Producto{
-    constructor(tipo, precio, color, talle, anio){
-        this.tipo=tipo;
-        this.precio=precio;
-        this.color=color;
-        this.talle=talle;
-        this.anio=anio;
-    }
-    get_datos(){
-        console.log("<------------------>");
-        console.log("Tipo de producto:", this.tipo);
-        console.log("Precio:", this.precio);
-        console.log("Talle:", this.talle);
-        console.log("Color:", this.color);
-    }
-    get_stock(){
+    let grandfather = e.target.parentNode.parentNode;
 
-    }
-}
-function buscar_producto( producto ){
+    grandfather.remove();
 
-    return producto.tipo == compra
-}
-let lista_productos = [];
-for(let i=0;i<3;i++){
-let tipo=prompt("Ingrese tipo de ropa");
-let precio=prompt("Ingrese el precio");
-let color=prompt("Ingrese el color");
-let talle=prompt("Ingrese el talle");
-let anio=prompt("ingrese el año");
-let producto = new Producto( tipo, precio, color, talle, anio );
-lista_productos.push(producto);
-}
-console.log(lista_productos);
+};
 
-
-for( let producto  of lista_productos){
-
-    producto.get_datos();
-}
-
-let compra = prompt("Ingrese el nombre del producto que desea comprar");
-
-let resultado_find = lista_productos.find(buscar_producto)
-
-console.log( resultado_find);

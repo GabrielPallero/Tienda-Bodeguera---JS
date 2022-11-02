@@ -51,6 +51,9 @@ header{
     display: flex;
     flex-direction: center;
 }
+main{
+    background-image: url(https://www.argfc.com/wp-content/uploads/2022/01/099DF489-44B1-427E-AAE5-CF5CF3D35149.webp);
+}
 .row{
     margin: 2rem;
     border: 2rem;
