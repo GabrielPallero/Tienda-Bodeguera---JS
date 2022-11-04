@@ -1,16 +1,7 @@
 let trolley = [];
 
 let btn_agregar = document.querySelectorAll (".botonAgregarcarrito");
-let btn_trolley = document.getElementById ("ocultar_carrito");
-btn_trolley.addEventListener("click", function(){
-let btn_trolley = document.getElementById("trolley");
-    if(trolley.style.visibility != "hidden"){
-        trolley.style.display = "none";
-    }
-    else{
-        trolley.style.display = "flex";
-    }
-})
+
 for(let boton of btn_agregar){
     boton.addEventListener("click", add_a_trolley)
 };
@@ -30,6 +21,11 @@ function add_a_trolley(e){
     }
     trolley.push(producto);
     ocultar_carrito(producto);
+
+    let trolley_arreglo_JSON = JSON.stringify(trolley);
+    localStorage.setItem("trolley", trolley_arreglo_JSON);
+    let recuperando_arreglo = localStorage.getItem("trolley");
+    recuperando_arreglo = JSON.parse(recuperando_arreglo);
 };
 function ocultar_carrito (producto){
     let fila = document.createElement("tr");
@@ -37,7 +33,7 @@ function ocultar_carrito (producto){
                       <td>${producto.cantidad}</td>
                       <td>${producto.precio}</td>
                       <td>${producto.talle}</td>
-                      <td><button class="btn btn-danger quitar_elemento">Borrar</td>`;
+                      <td><button class="btn btn-danger quitar_elemento"><i class="fa-solid fa-trash"></i></td>`;
                      
 let tabla = document.getElementById("tbody");
 tabla.append( fila );
@@ -59,3 +55,13 @@ function remove_elemento(e){
 
 };
 
+/*let btn_trolley = document.getElementById ("ocultar_carrito");
+btn_trolley.addEventListener("click", function(){
+let btn_trolley = document.getElementById("trolley");
+    if(btn_trolley.style.display != "none"){
+        btn_trolley.style.display = "none";
+    }
+    else{
+        btn_trolley.style.display = "flex";
+    }
+})*/
