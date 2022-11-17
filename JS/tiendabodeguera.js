@@ -6,19 +6,21 @@ const templateDatos = document.getElementById('template-datos').content
 const fragment = document.createDocumentFragment()
 
 let carrito =[]
-document.addEventListener('DOMContentLoaded', e => { fetchData() });
+document.addEventListener('DOMContentLoaded', () => { fetchData() });
 
 const fetchData= async()=>{
-    const res = await fetch('tiendabodegueraapi.json');
+   try{ 
+    const res = await fetch ('api.json');
     const data= await res.json()
-    crearCards(data)
+    construirCards(data)
+}catch(error){}
 }
 const construirCards = data => {
-    data.forEach(camiseta => {
-        templateCard.querySelector('h5').textContent = camiseta.title
-        templateCard.querySelector('p').textContent = camiseta.precio
-        templateCard.querySelector('img').setAttribute("src", camiseta.src)
-        templateCard.querySelector('.btn-success').dataset.id = camiseta.id
+    data.forEach(camisetas => {
+        templateCard.querySelector('h5').textContent = camisetas.title
+        templateCard.querySelector('p').textContent = camisetas.precio
+        templateCard.querySelector('img').setAttribute("src", camisetas.src)
+        templateCard.querySelector('.btn-success').dataset.id = camisetas.id
         const clone = templateCard.cloneNode(true)
         fragment.appendChild(clone)
     })
@@ -27,8 +29,8 @@ const construirCards = data => {
 
 const setTrolley = camiseta => {
     const producto = {
-        title: camiseta.querySelector('h5').textContent,
-        precio: camiseta.querySelector('p').textContent,
+        title: producto.querySelector('h5').textContent,
+        precio: producto.querySelector('p').textContent,
         cantidad: 1
     }
     if (carrito.hasOwnProperty(camiseta.id)) {
