@@ -9,7 +9,7 @@ let carrito =[]
 document.addEventListener('DOMContentLoaded', e => { fetchData() });
 
 const fetchData= async()=>{
-    const res = await fetch('https://drive.google.com/drive/u/0/folders/1-UuiRdoTyY1OU2ITV3TVjoN8eJ729xUq');
+    const res = await fetch('tiendabodegueraapi.json');
     const data= await res.json()
     crearCards(data)
 }
