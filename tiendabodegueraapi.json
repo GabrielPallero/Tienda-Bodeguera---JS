@@ -1,0 +1,40 @@
+[
+    {
+      "precio": "$8000",
+      "id": 1,
+      "title": "Camiseta 2011-12",
+      "src": "imagenes/2011-12.jpg"
+    },
+    {
+      "precio": "$9000",
+      "id": 2,
+      "title": "Camiseta 2016",
+      "src": "imagenes/2016.jpg"
+
+    },
+    {
+      "precio": "$10000",
+      "id": 3,
+      "title": "Camiseta 2018",
+      "src": "imagenes/2018.jpg"
+    },
+    {
+      "precio": "$12000",
+      "id": 4,
+      "title": "Camiseta 2022",
+      "src": "imagenes/Fiume2022.jpg"
+
+    },
+    {
+      "precio": "$9000",
+      "id": 5,
+      "title": "Camiseta alternativa 2011",
+      "src": "imagenes/camisetanegra2011.jpg"
+    },
+    {
+      "precio": "$10000",
+      "id": 6,
+      "title": "Camiseta ascenso 2005-06",
+      "src": "imagenes/gc2005-2006.jpg"
+    }
+  ]
