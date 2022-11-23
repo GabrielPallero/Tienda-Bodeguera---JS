@@ -7,11 +7,19 @@ const templateDatos = document.getElementById('template-datos').content
 const fragment = document.createDocumentFragment()
 
 let carrito ={}
-document.addEventListener('DOMContentLoaded', () => { fetchData() });
+document.addEventListener('DOMContentLoaded', () => { 
+    fetchData()
+    if (localStorage.getItem('carrito')){
+        carrito = JSON.parse(localStorage.getItem('carrito'))
+        construirCarrito()
+    }
+ });
 cards.addEventListener('click', e =>{
     agregarCarrito(e)
 })
-
+items.addEventListener('click', e =>{
+    btnmasmenos(e)
+})
 
 async function fetchData() {
     try {
@@ -70,6 +78,7 @@ const construirCarrito = (e) => {
     })
     items.appendChild(fragment)
 creardatoscarrito ()
+localStorage.setItem('carrito', JSON.stringify(carrito))
 }
 const creardatoscarrito = (e) =>{
     datos.innerHTML = ''
@@ -91,7 +100,7 @@ botonVaciar.addEventListener('click',()=>{
 })
 }
 
-const btnagregarcarrito =e => {
+const btnmasmenos =e => {
     if (e.target.classList.contains('btn-info')) {
         const producto = carrito[e.target.dataset.id]
         producto.cantidad++
@@ -104,8 +113,6 @@ const btnagregarcarrito =e => {
         producto.cantidad--
         if (producto.cantidad === 0) {
             delete carrito[e.target.dataset.id]
-     
-            carrito[e.target.dataset.id] = {...producto}
         }
         construirCarrito()
     }
