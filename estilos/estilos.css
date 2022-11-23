@@ -28,15 +28,28 @@ header{
     font-family: 'Titillium web';
    
 }
-
+div.container{
+    background-color: white;
+}
+div.card-body{
+    background-color: blue;
+}
+h5{
+    color: white;
+}
+p{
+    color: white;
+}
 .titulocamisetas{
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     color: blue;
     display: flex;
     flex-direction: center;
 }
+.card-img-top {
+    height: 290px; }
 main{
-    background-image: url(https://i.pinimg.com/originals/b9/f5/fe/b9f5fea7ababb33663c99f054b4fa8ce.png);
+    background-image: url(https://portada.com.ar/wp-content/uploads/2021/06/5d755f72ee14f.jpg);
         background-size: cover;
         background-repeat: no-repeat;
         background-position: center;
