@@ -1,10 +1,3 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    text-decoration: none;
-    font-family: 'Roboto', sans-serif;
-}
 
 header{
     background-color: blue;
@@ -43,7 +36,7 @@ header{
     flex-direction: center;
 }
 main{
-    background-image: url(https://www.argfc.com/wp-content/uploads/2022/01/099DF489-44B1-427E-AAE5-CF5CF3D35149.webp);
+    background-image: url(https://i.pinimg.com/originals/b9/f5/fe/b9f5fea7ababb33663c99f054b4fa8ce.png);
         background-size: cover;
         background-repeat: no-repeat;
         background-position: center;

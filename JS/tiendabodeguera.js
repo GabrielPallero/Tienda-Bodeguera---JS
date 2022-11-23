@@ -1,102 +1,113 @@
 const cards = document.getElementById ('cards')
 const items = document.getElementById('items')
+const datos = document.getElementById('datos')
 const templateCard = document.getElementById('template-card').content
 const templateCarrito = document.getElementById('template-carrito').content
 const templateDatos = document.getElementById('template-datos').content
 const fragment = document.createDocumentFragment()
 
-let carrito =[]
+let carrito ={}
 document.addEventListener('DOMContentLoaded', () => { fetchData() });
+cards.addEventListener('click', e =>{
+    agregarCarrito(e)
+})
 
-const fetchData= async()=>{
-   try{ 
-    const res = await fetch (' api.json ');
-    const data= await res.json()
-    construirCards(data)
-}catch(error){}
+
+async function fetchData() {
+    try {
+        const res = await fetch(' api.json ')
+        const data = await res.json()
+        construirCards(data)
+    } catch (error) { }
 }
+
 const construirCards = data => {
-    data.forEach(camisetas => {
-        templateCard.querySelector('h5').textContent = camisetas.title
-        templateCard.querySelector('p').textContent = camisetas.precio
-        templateCard.querySelector('img').setAttribute("src", camisetas.src)
-        templateCard.querySelector('.btn-success').dataset.id = camisetas.id
+    data.forEach(producto => {
+        templateCard.querySelector('h5').textContent = producto.title
+        templateCard.querySelector('p').textContent = producto.precio
+        templateCard.querySelector('img').setAttribute("src", producto.src)
+        templateCard.querySelector('.btn-success').dataset.id = producto.id
         const clone = templateCard.cloneNode(true)
         fragment.appendChild(clone)
     })
-    items.appendChild(fragment)
+    cards.appendChild(fragment)
 }
-
-const setTrolley = camiseta => {
+const agregarCarrito = e =>{
+    if(e.target.classList.contains('btn-success')){
+        addTrolley(e.target.parentElement)
+    }
+    e.stopPropagation()
+    
+}
+const addTrolley = objeto => {
     const producto = {
-        title: producto.querySelector('h5').textContent,
-        precio: producto.querySelector('p').textContent,
-        cantidad: 1
+        id: objeto.querySelector('.btn-success').dataset.id,
+        title: objeto.querySelector('h5').textContent,
+        precio: objeto.querySelector('p').textContent,
+        cantidad: 1,
     }
-    if (carrito.hasOwnProperty(camiseta.id)) {
-        camiseta.cantidad = carrito[camiseta.id].cantidad + 1
+    if (carrito.hasOwnProperty(producto.id)) {
+        producto.cantidad = carrito[producto.id].cantidad + 1
     }
 
-    carrito[camiseta.id] = { ...camiseta }
+    carrito[producto.id] = {...producto}
     
     construirCarrito()
 }
-const construirCarrito = () => {
+const construirCarrito = (e) => {
     items.innerHTML = ''
 
     Object.values(carrito).forEach(producto => {
-        items.innerHTML = ''
-        templateCarrito.querySelector('th').textContent = producto.id
+        templateCarrito.querySelector('th').textContent=producto.id
         templateCarrito.querySelectorAll('td')[0].textContent = producto.title
         templateCarrito.querySelectorAll('td')[1].textContent = producto.cantidad
         templateCarrito.querySelector('.btn-info').dataset.id = producto.id
         templateCarrito.querySelector('.btn-danger').dataset.id = producto.id
         templateCarrito.querySelector('span').textContent = producto.cantidad * producto.precio
         
-        const clone = templateTrolley.cloneNode(true)
+        const clone = templateCarrito.cloneNode(true)
         fragment.appendChild(clone)
     })
     items.appendChild(fragment)
 creardatoscarrito ()
 }
-const creardatoscarrito = () =>{
-    templateDatos.innerHTML = ''
+const creardatoscarrito = (e) =>{
+    datos.innerHTML = ''
+if(Object.keys(carrito).length === 0){
+    templateDatos.innerHTML = '<th scope="row" colspan="5">Carrito vacío</th>'
     return
 }
-if(Object.keys(carrito).length === 0){
-    templateDatos.innerHTML = '<th scope="row" colspan="5">Carrito vacío con innerHTML</th>'
-    
-}
-const nCantidad = Object.values(carrito).reduce((acc, { cantidad }) => acc + cantidad, 0)
+const nCantidad = Object.values(carrito).reduce((acc, {cantidad}) => acc + cantidad, 0)
 const nPrecio = Object.values(carrito).reduce((acc, {cantidad, precio}) => acc + cantidad * precio ,0)
-
 templateDatos.querySelectorAll('td')[0].textContent = nCantidad
 templateDatos.querySelector('span').textContent = nPrecio
-
 const clone = templateDatos.cloneNode(true)
 fragment.appendChild(clone)
+datos.appendChild(fragment)
+const botonVaciar = document.getElementById('vaciarcarrito')
+botonVaciar.addEventListener('click',()=>{
+    carrito = {}
+    construirCarrito()
+})
+}
 
-templateDatos.appendChild (fragment)
-
-
-
-const btnmasmenos =e => {
+const btnagregarcarrito =e => {
     if (e.target.classList.contains('btn-info')) {
-        const camiseta = carrito[e.target.dataset.id]
-        camiseta.cantidad++
-        carrito[e.target.dataset.id] = { ...camiseta }
-        crearCarrito()
+        const producto = carrito[e.target.dataset.id]
+        producto.cantidad++
+        carrito[e.target.dataset.id] = {...producto}
+        construirCarrito()
     }
 
     if (e.target.classList.contains('btn-danger')) {
-        const camiseta = carrito[e.target.dataset.id]
-        camiseta.cantidad--
-        if (camiseta.cantidad === 0) {
+        const producto = carrito[e.target.dataset.id]
+        producto.cantidad--
+        if (producto.cantidad === 0) {
             delete carrito[e.target.dataset.id]
-        } else {
-            carrito[e.target.dataset.id] = {...camiseta}
+     
+            carrito[e.target.dataset.id] = {...producto}
         }
-        crearCarrito()
+        construirCarrito()
     }
     e.stopPropagation()
 }

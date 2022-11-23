@@ -26,29 +26,26 @@
             <table class="table">
               <thead>
                 <tr>
-                  <th scope="col">#</th>
-                  <th scope="col">Item</th>
+                  <th scope="col">N°Serie</th>
+                  <th scope="col">Producto</th>
                   <th scope="col">Cantidad</th>
-                  <th scope="col">Acción</th>
+                  <th scope="col">Agregar/Quitar</th>
                   <th scope="col">Total</th>
-                </tr>
+                </tr> 
               </thead>
-              <tbody id="Item"></tbody>
+              <tbody id="items"></tbody>
               <tfoot>
                 <tr id="datos">
                   <th scope="row" colspan="5">Carrito vacío</th>
                 </tr>
               </tfoot>
             </table>
-            <h4>Camisetas</h4>
-            <div class="row" id="cards"></div>
-          </div>
-      
+           
           <template id="template-datos">
               <th scope="row" colspan="2">Total productos</th>
               <td>10</td>
               <td>
-                  <button class="btn btn-danger btn-sm" id="vaciar-carrito">
+                  <button class="btn btn-danger btn-sm" id="vaciarcarrito">
                       vaciar todo
                   </button>
               </td>
@@ -68,15 +65,19 @@
                       -
                   </button>
               </td>
-              <td>$ <span></span></td>
+              <td>$ <span>500</span></td>
             </tr>
           </template>
+          <h4>Camisetas</h4>
+          <div class="row" id="titulo"></div>
+        </div>
+    
        <div class="container">
         <h1></h1>
-        <div class="row" id="items"></div>
+        <div class="row" id="cards"></div>
        </div>
           <template id="template-card">
-            <div class="col-12 mb-2 col-md-4">
+            <div class="col-10 mb-2 col-md-4">
               <div class="card">
                 <img src="" alt="" class="card-img-top">
                 <div class="card-body">
