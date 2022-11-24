@@ -14,13 +14,30 @@ document.addEventListener('DOMContentLoaded', () => {
         construirCarrito()
     }
  });
-cards.addEventListener('click', e =>{
+cards.addEventListener('click', e =>{  
+    Toastify({
+
+    text:"PRODUCTO AGREGADO AL CARRITO.",
+    duration:2000,
+    destination:"https://apvarun.github.io/toastify-js/#",
+    gravity:"top",
+    position:"rigth",
+    style:{
+        fontSize:"20px",
+        fontFamily: "Arial",
+        background: "linear-gradient(148deg, rgba(1,19,149,0.9360119047619048) 79%, rgba(244,244,244,1) 100%)", 
+        color:"white",
+    }
+
+
+}).showToast(e);
+    
     agregarCarrito(e)
 })
+        
 items.addEventListener('click', e =>{
     btnmasmenos(e)
 })
-
 async function fetchData() {
     try {
         const res = await fetch(' api.json ')
@@ -93,28 +110,42 @@ templateDatos.querySelector('span').textContent = nPrecio
 const clone = templateDatos.cloneNode(true)
 fragment.appendChild(clone)
 datos.appendChild(fragment)
-const botonVaciar = document.getElementById('vaciarcarrito')
-botonVaciar.addEventListener('click',()=>{
+const botonVaciar = document.getElementById('vaciarcarrito',)
+botonVaciar.addEventListener('click',function(){
+   Swal.fire({
+        title: '¡Productos eliminados!',
+        text: "Su carrito esta vacío",
+        icon: 'success',
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'OK!',
+      })
     carrito = {}
     construirCarrito()
 })
 }
 
-const btnmasmenos =e => {
+const btnmasmenos =e => {Toastify({
+    text:"Producto agregado/quitado",
+    duration:2000,
+    destination:"https://apvarun.github.io/toastify-js/#",
+    gravity:"top",
+    position:"left",
+    style:{
+        fontSize:"20px",
+        fontFamily: "Titillium web",
+        background: "linear-gradient(148deg, rgba(1,19,149,0.9360119047619048) 79%, rgba(244,244,244,1) 100%)", 
+        color:"white",
+    }}).showToast(e);
     if (e.target.classList.contains('btn-primary')) {
         const producto = carrito[e.target.dataset.id]
         producto.cantidad++
         carrito[e.target.dataset.id] = {...producto}
         construirCarrito()
-    }
-
-    if (e.target.classList.contains('btn-danger')) {
+    }if (e.target.classList.contains('btn-danger')) {
         const producto = carrito[e.target.dataset.id]
         producto.cantidad--
         if (producto.cantidad === 0) {
-            delete carrito[e.target.dataset.id]
-        }
-        construirCarrito()
-    }
-    e.stopPropagation()
-}
+            delete carrito[e.target.dataset.id]}
+        construirCarrito()}
+    e.stopPropagation()}

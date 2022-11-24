@@ -5,6 +5,9 @@ header{
     border: 1rem;
     padding: 1rem;
 }
+.indumentaria{
+    font-family: 'Titillium web';
+}
 .nav{
    
     display: flex;
@@ -75,7 +78,7 @@ main{
     }
 .CFooter{
     display: flex;
-    justify-content: baseline;
+    justify-content: center;
     
 }
 .tituloFooter{
