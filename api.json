@@ -2,39 +2,93 @@
     {
       "precio": "8000",
       "id": 1,
-      "title": "Camiseta 2011-12",
+      "title": "Camiseta 2011-12 (1)",
       "src": "imagenes/2011-12.jpg"
     },
     {
       "precio": "9000",
       "id": 2,
-      "title": "Camiseta 2016",
+      "title": "Camiseta 2016 (2)",
       "src": "imagenes/2016.jpg"
 
     },
     {
       "precio": "10000",
       "id": 3,
-      "title": "Camiseta 2018",
+      "title": "Camiseta 2018 (3)",
       "src": "imagenes/2018.jpg"
     },
     {
       "precio": "12000",
       "id": 4,
-      "title": "Camiseta 2022",
+      "title": "Camiseta 2022 (4)",
       "src": "imagenes/Fiume2022.jpg"
 
     },
     {
       "precio": "9000",
       "id": 5,
-      "title": "Camiseta alternativa 2011",
+      "title": "Camiseta alternativa 2011 (5)",
       "src": "imagenes/camisetanegra2011.jpg"
     },
     {
       "precio": "10000",
       "id": 6,
-      "title": "Camiseta ascenso 2005-06",
+      "title": "Camiseta ascenso 2005-06 (6)",
       "src": "imagenes/gc2005-2006.jpg"
+    },
+    {
+      "precio": "23000",
+      "id": 7,
+      "title": "Campera Negra 2022 (7)",
+      "src": "imagenes/camperanegra2022.jpg"
+    },
+    {
+      "precio": "10000",
+      "id": 8,
+      "title": "Camiseta arquero Kelme (8)",
+      "src": "imagenes/camisetaamarillakelme.jpeg"
+    },
+    {
+      "precio": "5000",
+      "id": 9,
+      "title": "Chomba Mebal retro (9)",
+      "src": "imagenes/chombaretro.jpg"
+    },
+    {
+      "precio": "4000",
+      "id": 10,
+      "title": "Pantalones Futbol Azul Kelme (10)",
+      "src": "imagenes/pantalonfutbolazul.jpg"
+    },
+    {
+      "precio": "8000",
+      "id": 11,
+      "title": "Remera + pantalon corto (11)",
+      "src": "imagenes/remera+pantalon.jpg"
+    },
+    {
+      "precio": "14000",
+      "id": 12,
+      "title": "Camiseta alternativa 2022 (12)",
+      "src": "imagenes/camisetaborravino.jpg"
+    },
+    {
+      "precio": "7000",
+      "id": 13,
+      "title": "Buzo negro Kelme (13)",
+      "src": "imagenes/buzonegrokelme.jpg"
+    },
+    {
+      "precio": "15000",
+      "id": 14,
+      "title": "Camiseta aniversario 100 años (14)",
+      "src": "imagenes/camiseta100años.png"
+    },
+    {
+      "precio": "20000",
+      "id": 15,
+      "title": "Campera negra Lotto (15)",
+      "src": "imagenes/camperalottonegra.jpg"
     }
   ]

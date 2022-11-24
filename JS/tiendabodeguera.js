@@ -69,7 +69,7 @@ const construirCarrito = (e) => {
         templateCarrito.querySelector('th').textContent=producto.id
         templateCarrito.querySelectorAll('td')[0].textContent = producto.title
         templateCarrito.querySelectorAll('td')[1].textContent = producto.cantidad
-        templateCarrito.querySelector('.btn-info').dataset.id = producto.id
+        templateCarrito.querySelector('.btn-primary').dataset.id = producto.id
         templateCarrito.querySelector('.btn-danger').dataset.id = producto.id
         templateCarrito.querySelector('span').textContent = producto.cantidad * producto.precio
         
@@ -101,7 +101,7 @@ botonVaciar.addEventListener('click',()=>{
 }
 
 const btnmasmenos =e => {
-    if (e.target.classList.contains('btn-info')) {
+    if (e.target.classList.contains('btn-primary')) {
         const producto = carrito[e.target.dataset.id]
         producto.cantidad++
         carrito[e.target.dataset.id] = {...producto}

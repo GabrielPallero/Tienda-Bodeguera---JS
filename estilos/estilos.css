@@ -59,4 +59,25 @@ main{
         background-color: blue;
         font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
         color: white;
+        margin-top: 0rem;
+        border: 1rem;
+        padding: 1rem;
     }
+.logofooter img{
+
+    width: 110px;
+    height: 110px;
+    border-radius: 120%;
+    width: 111px;
+    height: 111px;
+    margin: 2rem;
+    padding: 1rem; 
+    }
+.CFooter{
+    display: flex;
+    justify-content: baseline;
+    
+}
+.tituloFooter{
+    font-family: 'Titillium web';
+}
